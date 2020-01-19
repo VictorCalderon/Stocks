@@ -1,7 +1,9 @@
 <template>
-  <div>
-    {{ stockPortfolio }}
-    <app-stock v-for="stock in stockPortfolio" :key="stock" :stock="stock"></app-stock>
+  <div class="container p-5">
+    <h1 class="text-center">Your Stocks</h1>
+    <div class="row">
+      <app-stock v-for="stock in stocks" :key="stock.id" :stock="stock"></app-stock>
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,7 @@ import Stock from "./Stock";
 
 export default {
   computed: {
-    ...mapGetters(["stockPortfolio"])
+    ...mapGetters(["stocks"])
   },
   components: {
     appStock: Stock

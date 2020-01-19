@@ -2,10 +2,16 @@
   <div class="col-md-4 col-sm-6 p-2">
     <div class="card bg-light">
       <div class="card-body text-center">
-        <h3 class="card-title">Name: {{ stock.name }}</h3>
-        <h5 class="card-subtitle">Price: {{ stock.price }}USD</h5>
-        <h5 class="card-subtitle">Quantity: {{ stock.quantity }}</h5>
-        <div class="input-group mb-1 col-10 offset-1">
+        <h3 class="card-title">{{ stock.name }}</h3>
+        <h5 class="card-subtitle">
+          <small>
+            Price:
+            {{ stock.price }}
+            <small>USD</small>
+            | Quantity: {{ stock.quantity ? stock.quantity : 'Null' }}
+          </small>
+        </h5>
+        <div class="input-group mt-2 col-10 offset-1">
           <input
             type="number"
             class="form-control"
@@ -20,7 +26,7 @@
               id="button-addon2"
               @click="sellStock"
               :disabled="quantity < 0"
-            >Sell</button>
+            >Sell!</button>
           </div>
         </div>
       </div>

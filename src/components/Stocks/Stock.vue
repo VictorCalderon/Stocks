@@ -2,16 +2,16 @@
   <div class="col-md-4 col-sm-6 p-2">
     <div class="card bg-light">
       <div class="card-body text-center">
-        <h5 class="card-title">
-          {{ stock.name }}
+        <h3 class="card-title">{{ stock.name }}</h3>
+        <h5 class="card-subtitle">
           <small>
-            <small>
-              (Price: {{ stock.price }}
-              <small>USD</small>)
-            </small>
+            Price:
+            {{ stock.price }}
+            <small>USD</small>
+            | Perc. Change: 0%
           </small>
         </h5>
-        <div class="input-group mb-1 col-10 offset-1">
+        <div class="input-group mt-2 col-10 offset-1">
           <input
             type="number"
             class="form-control"
