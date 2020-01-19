@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-5">
+  <div class="container p-3">
     <h1 class="text-center">Your Stocks</h1>
     <div class="row">
       <app-stock v-for="stock in stocks" :key="stock.id" :stock="stock" :mode="'Sell'"></app-stock>

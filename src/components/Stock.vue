@@ -10,7 +10,7 @@
             <small>USD</small>
           </small>
           <h6 class="text-muted mt-1">
-            <span v-if="buyingOrSelling">24-Hour Change: 0%</span>
+            <span v-if="buyingOrSelling">24-Hr Change: 0%</span>
             <span v-else>Quantity: {{ stock.quantity ? stock.quantity : 'Null' }}</span>
           </h6>
         </h5>
