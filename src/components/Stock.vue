@@ -7,10 +7,12 @@
           <small>
             Price:
             {{ stock.price }}
-            <small>USD |</small>
-            <span v-if="buyingOrSelling">| 24Hr Change: 0%</span>
-            <span v-else>| Quantity: {{ stock.quantity ? stock.quantity : 'Null' }}</span>
+            <small>USD</small>
           </small>
+          <h6 class="text-muted mt-1">
+            <span v-if="buyingOrSelling">24-Hour Change: 0%</span>
+            <span v-else>Quantity: {{ stock.quantity ? stock.quantity : 'Null' }}</span>
+          </h6>
         </h5>
         <div class="input-group mt-2 col-10 offset-1">
           <input
