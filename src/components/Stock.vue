@@ -7,8 +7,9 @@
           <small>
             Price:
             {{ stock.price }}
-            <small>USD</small>
-            | Perc. Change: 0%
+            <small>USD |</small>
+            <span v-if="buyingOrSelling">| 24Hr Change: 0%</span>
+            <span v-else>| Quantity: {{ stock.quantity ? stock.quantity : 'Null' }}</span>
           </small>
         </h5>
         <div class="input-group mt-2 col-10 offset-1">
@@ -21,12 +22,21 @@
           />
           <div class="input-group-append">
             <button
-              class="btn btn-success"
+              v-if="buyingOrSelling"
+              class="btn btn-info"
               type="button"
               id="button-addon2"
               @click="buyStock"
               :disabled="quantity < 0"
-            >Buy!</button>
+            >{{mode}}!</button>
+            <button
+              v-if="!buyingOrSelling"
+              class="btn btn-info"
+              type="button"
+              id="button-addon2"
+              @click="sellStock"
+              :disabled="quantity < 0"
+            >{{mode}}!</button>
           </div>
         </div>
       </div>
@@ -35,14 +45,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  props: ["stock"],
+  props: ["stock", "mode"],
   data() {
     return {
       quantity: 0
     };
   },
   methods: {
+    ...mapGetters(["sellStock"]),
     buyStock() {
       const order = {
         id: this.stock.id,
@@ -51,6 +64,19 @@ export default {
       };
       this.$store.dispatch("BUY_STOCK", order);
       this.quantity = 0;
+    },
+    sellStock() {
+      const order = {
+        id: this.stock.id,
+        price: this.stock.price,
+        quantity: this.quantity
+      };
+      this.sellStock(order);
+    }
+  },
+  computed: {
+    buyingOrSelling() {
+      return this.mode == "Buy" ? true : false;
     }
   }
 };

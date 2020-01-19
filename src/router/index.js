@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Portfolio from '@/components/Portfolio/Portfolio.vue'
-import Stocks from '@/components/Stocks/Stocks.vue'
+import Portfolio from '@/components/Portfolio.vue'
+import Market from '@/components/Market.vue'
 
 
 
@@ -20,9 +20,9 @@ const routes = [
     component: Portfolio
   },
   {
-    path: '/Stocks',
-    name: 'stocks',
-    component: Stocks
+    path: '/Market',
+    name: 'market',
+    component: Market
   }
 ]
 

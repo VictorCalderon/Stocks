@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav mr-auto">
         <router-link class="nav-link" to="/Portfolio" active-class="active">Portfolio</router-link>
-        <router-link class="nav-link" to="/Stocks" active-class="active">Stocks</router-link>
+        <router-link class="nav-link" to="/Market" active-class="active">Market</router-link>
       </ul>
       <div class="dropdown mr-2">
         <button
