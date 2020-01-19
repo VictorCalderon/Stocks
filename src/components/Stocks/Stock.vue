@@ -49,7 +49,7 @@ export default {
         price: this.stock.price,
         quantity: this.quantity
       };
-      console.log(order);
+      this.$store.dispatch("BUY_STOCK", order);
       this.quantity = 0;
     }
   }
@@ -58,3 +58,4 @@ export default {
 
 <style>
 </style>
+
