@@ -9,7 +9,7 @@
       </ul>
       <div class="dropdown mr-2">
         <button
-          class="btn btn-secondary dropdown-toggle mr-auto"
+          class="btn btn-info dropdown-toggle mr-auto"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
