@@ -1,5 +1,5 @@
 <template>
-  <div class id>
+  <div class id="app">
     <app-header></app-header>
     <div class="container">
       <router-view></router-view>
@@ -26,11 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding: 30px;
-}
-
-#nav {
-  padding: 30px;
 }
 
 #nav a {
