@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <app-stock v-for="stock in stocks" :key="stock">{{stock}}</app-stock>
+  <div class="container p-5">
+    <h1 class="text-center">Your Stocks</h1>
+    <div class="row">
+      <app-stock v-for="stock in stocks" :key="stock.id" :stock="stock"></app-stock>
+    </div>
   </div>
 </template>
 
@@ -12,10 +15,10 @@ export default {
     return {
       stocks: [
         { id: 1, name: "BMW", price: 321 },
-        { id: 2, name: "APPL", price: 123 },
-        { id: 3, name: "ILLM", price: 159 },
-        { id: 4, name: "ALPH", price: 423 },
-        { id: 5, name: "ADAN", price: 987 }
+        { id: 2, name: "Apple", price: 123 },
+        { id: 3, name: "Illumina", price: 159 },
+        { id: 4, name: "Alphabet", price: 423 },
+        { id: 5, name: "Nalguepollo", price: 987 }
       ]
     };
   },
