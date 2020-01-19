@@ -11,7 +11,7 @@
           </small>
           <h6 class="text-muted mt-1">
             <span v-if="buyingOrSelling">24-Hr Change: 0%</span>
-            <span v-else>Quantity: {{ stock.quantity ? stock.quantity : 'Null' }}</span>
+            <span v-else>Quantity: {{ stock.quantity ? stock.quantity : 0 }}</span>
           </h6>
         </h5>
         <div class="input-group mt-2 col-10 offset-1">
@@ -57,14 +57,14 @@ export default {
     };
   },
   methods: {
-    ...mapGetters(["sellStock"]),
+    ...mapGetters(["sellStock, buyStock"]),
     buyStock() {
       const order = {
         id: this.stock.id,
         price: this.stock.price,
         quantity: this.quantity
       };
-      this.$store.dispatch("BUY_STOCK", order);
+      this.buyStock(order);
       this.quantity = 0;
     },
     sellStock() {
