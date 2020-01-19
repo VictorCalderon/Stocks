@@ -5,7 +5,10 @@
         <h5 class="card-title">
           {{ stock.name }}
           <small>
-            <small>(Price: {{ stock.price }})</small>
+            <small>
+              (Price: {{ stock.price }}
+              <small>USD</small>)
+            </small>
           </small>
         </h5>
         <div class="input-group mb-1 col-10 offset-1">

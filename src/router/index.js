@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Portfolio from '@/components/Portfolio/Portfolio.vue'
 import Stocks from '@/components/Stocks/Stocks.vue'
+
+
+
 Vue.use(VueRouter)
 
 const routes = [
