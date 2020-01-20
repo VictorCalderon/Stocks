@@ -1,15 +1,14 @@
 <template>
   <div class="container p-3">
+    <h1 v-if=" stockPortfolio.length>0" class="col text-center">Your Stocks</h1>
     <div class="row" v-if="stockPortfolio.length > 0">
-      <h1 class="col text-center">Your Stocks</h1>
-      <div class="row">
-        <app-stock v-for="stock in stockPortfolio" :key="stock.id" :stock="stock" :mode="'Sell'"></app-stock>
-      </div>
+      <app-stock v-for="stock in stockPortfolio" :key="stock.id" :stock="stock" :mode="'Sell'"></app-stock>
     </div>
     <div class="row" v-else>
       <div class="jumbotron col-12">
-        <h1>You don't own any stocks yet!</h1>
-        <button class="btn btn-success btn-large">Go to Market</button>
+        <h3 class="text-muted">No Stocks to display</h3>
+        <h1>Buy Stocks!</h1>
+        <router-link class="btn btn-success btn-large mt-1" to="/market">Go to Market</router-link>
       </div>
     </div>
   </div>
