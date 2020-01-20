@@ -16,8 +16,9 @@
         </h5>
         <div class="input-group mt-2 col-10 offset-1">
           <input
+            onwheel="quantity++"
             type="number"
-            class="form-control"
+            class="form-control shadow-sm"
             placeholder="Quantity"
             v-model="quantity"
             aria-describedby="button-addon2"
@@ -25,19 +26,19 @@
           <div class="input-group-append">
             <button
               v-if="buyingOrSelling"
-              class="btn btn-info"
+              class="btn btn-info shadow-sm"
               type="button"
               id="button-addon2"
-              @click="buyStock"
+              @click="appBuyStock"
               :disabled="quantity < 0"
             >{{mode}}!</button>
             <button
               v-if="!buyingOrSelling"
-              class="btn btn-info"
+              class="btn btn-info shadow-sm"
               type="button"
               id="button-addon2"
-              @click="sellStock"
-              :disabled="quantity < 0"
+              @click="appSellStock"
+              :disabled="quantity < 0 || stock.quantity < quantity"
             >{{mode}}!</button>
           </div>
         </div>
@@ -47,8 +48,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
+import { mapActions } from "vuex";
 export default {
   props: ["stock", "mode"],
   data() {
@@ -57,23 +57,27 @@ export default {
     };
   },
   methods: {
-    ...mapGetters(["sellStock, buyStock"]),
-    buyStock() {
+    ...mapActions({
+      storeBuyStock: "buyStock",
+      storeSellStock: "sellStock"
+    }),
+    appBuyStock() {
       const order = {
         id: this.stock.id,
         price: this.stock.price,
         quantity: this.quantity
       };
-      this.buyStock(order);
+      this.storeBuyStock(order);
       this.quantity = 0;
     },
-    sellStock() {
+    appSellStock() {
       const order = {
         id: this.stock.id,
         price: this.stock.price,
         quantity: this.quantity
       };
-      this.sellStock(order);
+      this.storeSellStock(order);
+      this.quantity = 0;
     }
   },
   computed: {
