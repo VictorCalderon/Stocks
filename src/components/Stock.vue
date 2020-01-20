@@ -16,7 +16,7 @@
         </h5>
         <div class="input-group mt-2 col-10 offset-1">
           <input
-            onwheel="quantity++"
+            onwheel
             type="number"
             class="form-control shadow-sm"
             placeholder="Quantity"
