@@ -6,7 +6,7 @@
         <h5 class="card-subtitle">
           <small>
             Price:
-            {{ stock.price }}
+            {{ stock.price | currency }}
             <small>USD</small>
           </small>
           <h6 class="text-muted mt-1">
@@ -26,20 +26,22 @@
           <div class="input-group-append">
             <button
               v-if="buyingOrSelling"
-              class="btn btn-info shadow-sm"
+              class="btn shadow-sm"
+              :class="insufficientFundsStyle"
               type="button"
               id="button-addon2"
               @click="appBuyStock"
-              :disabled="quantity < 0"
-            >{{mode}}!</button>
+              :disabled="quantity < 0 || insufficientFunds"
+            >{{insufficientFunds ? 'Insufficient Funds' : mode}}!</button>
             <button
               v-if="!buyingOrSelling"
-              class="btn btn-info shadow-sm"
+              class="btn shadow-sm"
+              :class="insufficientStocksStyle"
               type="button"
               id="button-addon2"
               @click="appSellStock"
-              :disabled="quantity < 0 || stock.quantity < quantity"
-            >{{mode}}!</button>
+              :disabled="quantity < 0 || insufficientStocks"
+            >{{insufficientStocks ? 'Insufficient Stocks' : mode}}!</button>
           </div>
         </div>
       </div>
@@ -83,6 +85,21 @@ export default {
   computed: {
     buyingOrSelling() {
       return this.mode == "Buy" ? true : false;
+    },
+    funds() {
+      return this.$store.getters.funds;
+    },
+    insufficientFunds() {
+      return this.quantity * this.stock.price > this.funds;
+    },
+    insufficientStocks() {
+      return this.quantity > this.stock.quantity;
+    },
+    insufficientFundsStyle() {
+      return this.insufficientFunds ? "btn-warning" : "btn-info";
+    },
+    insufficientStocksStyle() {
+      return this.insufficientStocks ? "btn-warning" : "btn-info";
     }
   }
 };
