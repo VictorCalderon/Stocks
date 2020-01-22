@@ -8,4 +8,5 @@ export default [
     { id: 7, name: "Twitter", price: 180 },
     { id: 8, name: "Instagram", price: 102 },
     { id: 9, name: "Tik Tok", price: 200 },
+    { id: 10, name: "Referencia", price: 320 }
 ]
