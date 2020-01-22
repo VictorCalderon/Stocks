@@ -12,7 +12,6 @@
           active-class="active"
         >Funds: {{funds | currency}}</router-link>
       </ul>
-
       <div class="dropdown mr-2">
         <button
           class="btn btn-info dropdown-toggle mr-auto"
@@ -25,6 +24,8 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">Commit Trades</a>
           <a class="dropdown-item" href="#">Load Previous States</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">End Trading Session</a>
         </div>
       </div>
       <form class="form-inline my-2 my-lg-0">
