@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Portfolio from '@/components/Portfolio.vue'
-import Market from '@/components/Market.vue'
+import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import Portfolio from '@/views/Portfolio.vue'
+import Market from '@/views/Market.vue'
+import Purchases from '@/views/Purchases.vue'
 
 
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/Market',
     name: 'market',
     component: Market
+  },
+  {
+    path: '/Purchases',
+    name: 'purchases',
+    component: Purchases
   }
 ]
 

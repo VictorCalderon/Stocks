@@ -6,7 +6,9 @@
       <ul class="nav navbar-nav mr-auto">
         <router-link class="nav-link" to="/Portfolio" active-class="active">Portfolio</router-link>
         <router-link class="nav-link" to="/Market" active-class="active">Market</router-link>
+        <router-link class="nav-link" to="/Purchases" active-class="active">Funds: {{funds}}</router-link>
       </ul>
+
       <div class="dropdown mr-2">
         <button
           class="btn btn-info dropdown-toggle mr-auto"
@@ -28,3 +30,13 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    }
+  }
+};
+</script>
