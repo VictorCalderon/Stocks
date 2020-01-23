@@ -5,6 +5,7 @@ import store from './store'
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'animate.css'
 
 Vue.config.productionTip = false
 Vue.filter('currency', (value) => {

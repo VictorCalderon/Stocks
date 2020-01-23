@@ -31,7 +31,7 @@
               type="button"
               id="button-addon2"
               @click="appBuyStock"
-              :disabled="quantity < 0 || insufficientFunds"
+              :disabled="quantity < 1 || insufficientFunds"
             >{{insufficientFunds ? 'Insufficient Funds' : mode}}!</button>
             <button
               v-if="!buyingOrSelling"
@@ -40,7 +40,7 @@
               type="button"
               id="button-addon2"
               @click="appSellStock"
-              :disabled="quantity < 0 || insufficientStocks"
+              :disabled="quantity < 1 || insufficientStocks"
             >{{insufficientStocks ? 'Insufficient Stocks' : mode}}!</button>
           </div>
         </div>

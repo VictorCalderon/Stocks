@@ -2,7 +2,13 @@
   <div class id="app">
     <app-header></app-header>
     <div class="container">
-      <router-view></router-view>
+      <transition
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated bounceOutRight"
+        mode="out-in"
+      >
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
