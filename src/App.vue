@@ -3,8 +3,8 @@
     <app-header></app-header>
     <div class="container">
       <transition
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated bounceOutRight"
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOutUp"
         mode="out-in"
       >
         <router-view />

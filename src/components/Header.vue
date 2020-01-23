@@ -1,7 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <router-link class="navbar-brand" to="/home">Stock Trader</router-link>
-
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav mr-auto">
         <router-link class="nav-link" to="/Portfolio" active-class="active">Portfolio</router-link>
