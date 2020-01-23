@@ -38,6 +38,11 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      isDropdownActive: false
+    };
+  },
   computed: {
     funds() {
       return this.$store.getters.funds;
@@ -51,3 +56,7 @@ export default {
   }
 };
 </script>
+
+        // :class="{open: isDropdownActive}"
+        // @mouseenter="isDropdownActive = !isDropdownActive"
+        // @mouseleave="isDropdownActive = !isDropdownActive"
