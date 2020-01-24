@@ -42,7 +42,6 @@
           />
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <button class="btn btn-info ml-2" data-toggle="modal" data-target="#loadPrevious">Hola</button>
       </div>
     </nav>
     <!-- Modal -->
