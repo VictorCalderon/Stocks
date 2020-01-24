@@ -31,6 +31,7 @@
             >Load Previous States</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" @click="endDay">End Trading Session</a>
+            <a class="dropdown-item" href="#" @click="loadTrades">Load Trades</a>
           </div>
         </div>
         <form class="form-inline my-2 my-lg-0">
@@ -52,26 +53,33 @@
             <h3 class="mt-2">Log in</h3>
             <hr />
             <div class="row justify-content-center">
-              <div class="col-10 m-3">
-                <label for="inputUsername">Username</label>
+              <div class="col-10 mb-1">
                 <input
+                  v-model="user.name"
                   type="text"
                   id="inputUsername"
                   class="form-control text-center"
-                  placeholder="email@example.com"
+                  placeholder="username"
                 />
               </div>
             </div>
             <div class="row justify-content-center">
-              <div class="col-10 m-3">
-                <label for="inputPassword5">Password</label>
-                <input type="password" id="inputPassword" class="form-control" />
+              <div class="col-10">
+                <input
+                  v-model="user.password"
+                  type="password"
+                  id="inputPassword"
+                  placeholder="password"
+                  class="form-control text-center"
+                />
               </div>
             </div>
+            <p class="mt-3">Enter your credentials to load your previous exchanges.</p>
+            <button class="btn btn-success btn-block col-6 offset-3">Load Trades</button>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+          <!-- <div class="modal-footer">
+            <button class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+          </div>-->
         </div>
       </div>
     </div>
@@ -83,6 +91,10 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      user: {
+        name: "",
+        password: ""
+      },
       isDropdownActive: false
     };
   },
@@ -92,7 +104,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["randomizeStocks"]),
+    ...mapActions({
+      randomizeStocks: "randomizeStocks",
+      fetchData: "loadData"
+    }),
     endDay() {
       this.randomizeStocks();
     },
@@ -103,26 +118,10 @@ export default {
         stocks: this.$store.getters.stocks
       };
       this.$http.put("data.json", data);
+    },
+    loadTrades() {
+      this.fetchData();
     }
   }
 };
 </script>
-
-<style scoped>
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-</style>
