@@ -46,13 +46,28 @@
     </nav>
     <!-- Modal -->
     <div class="modal fade" id="loadPrevious" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loadPreviousLabel">Fetch your previous states</h5>
-          </div>
           <div class="modal-body">
-            <h1>Log in forms here</h1>
+            <h3 class="mt-2">Log in</h3>
+            <hr />
+            <div class="row justify-content-center">
+              <div class="col-10 m-3">
+                <label for="inputUsername">Username</label>
+                <input
+                  type="text"
+                  id="inputUsername"
+                  class="form-control text-center"
+                  placeholder="email@example.com"
+                />
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-10 m-3">
+                <label for="inputPassword5">Password</label>
+                <input type="password" id="inputPassword" class="form-control" />
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Close</button>
