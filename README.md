@@ -1,26 +1,12 @@
 # Stocks
 
+Stock Trader app with Firebase through Vue-Resource, Vue-Router and Vuex.
+
+## Information
+This project came from the final project of Udemy course: Vuejs 2: The Complete Guide.
+
+
 ## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Run npn install to set up all dependencies of the project and npm run serve to compile it.
 
 
